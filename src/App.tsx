@@ -15,8 +15,16 @@ import { SleepOverlay } from "./components/ui/SleepOverlay";
 import { DreamVideoOverlay } from "./components/ui/DreamVideoOverlay";
 import { WakeUpPrompt } from "./components/ui/WakeUpOverlay";
 import { HostPrompt } from "./components/ui/HostPrompt";
+import { useIsMobile } from "./hooks/misc/useIsMobile";
+import { MobileBlocker } from "./components/ui/MobileBlocker";
 
 export default function App() {
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return <MobileBlocker />;
+  }
+
   const store = useStore();
   const {
     isDead,
