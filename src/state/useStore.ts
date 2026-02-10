@@ -28,7 +28,7 @@ type GameStore = LifeSlice &
     reset: () => void;
   };
 
-export const useStore = create<GameStore>((set, get) => ({
+export const useStore = create<GameStore>((set) => ({
   ...createLifeSlice(set),
   ...createNarrativeSlice(set),
   ...createDoorSlice(set),
