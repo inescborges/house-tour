@@ -1,0 +1,90 @@
+/* 🔔 Prompt box (caixinha de texto) */
+.texts-position {
+  position: fixed;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6000;
+
+  /* 🔲 Caixa */
+  border: 1px solid #8e9a6bff;
+  padding: 16px 16px;
+  background: white;
+  /* 🔠 Texto */
+  text-align: center;
+  color: black;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  line-height: 1.6;
+
+  /* 📦 Faz a largura adaptar-se ao texto */
+  width: fit-content;
+  max-width: 90vw;
+}
+
+.texts-position.wake-up {
+  bottom: 2%;
+  right: 2%;
+  left: auto;
+  transform: none;
+
+  padding: 10px 12px;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.texts-position b {
+  color: #8e9a6bff;
+}
+
+.texts-position:empty {
+  display: none;
+}
+
+.death-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: #050505;
+
+  font-family: "JetBrains Mono", monospace;
+  color: #eaeaea;
+  text-align: center;
+}
+
+.death-overlay p {
+  margin: 0;
+}
+
+/* 🔲 Caixa principal (eco da texts-position) */
+.death-overlay p:first-child {
+  border: 1px solid #8e9a6bff;
+  padding: 18px 20px;
+  background: #0d0d0d;
+
+  font-size: 0.8rem;
+  line-height: 1.6;
+  border-radius: 6px;
+
+  max-width: 500px;
+}
+
+/* 🟢 acento igual */
+.death-overlay p:first-child b {
+  color: #8e9a6bff;
+}
+
+/* 🕯️ hint discreto */
+.death-overlay .hint {
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  opacity: 0.45;
+  letter-spacing: 0.05em;
+}

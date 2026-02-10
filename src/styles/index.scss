@@ -1,0 +1,22 @@
+$bg-color: #0d0d0d;
+$text-color: #ffffff;
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: "Inter", sans-serif;
+}
+
+// React Three Fiber Canvas occupies 100% of the space
+canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
