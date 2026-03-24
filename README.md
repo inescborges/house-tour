@@ -1,7 +1,7 @@
 # house-tour
 
 A browser-based first-person experience made with React Three Fiber and Blender.  
-Explore an apartment, interact with objects, and deal with a creature that moves only when watched. Die, reset and try again.
+Explore an apartment, interact with objects and deal with a creature that moves only when watched. Die, reset and try again.
 
 ## Controls
 
