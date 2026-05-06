@@ -30,6 +30,7 @@ export function usePlayerHostDoorbell({
   });
 
   const lastStateRef = useRef<boolean | null>(null);
+  const enterHandledRef = useRef(false);
 
   const playDoorbellSequence = useDoorbellSequence(
     hostFootstepsRef.current,
@@ -46,7 +47,10 @@ export function usePlayerHostDoorbell({
       onDoorbellFocus?.(canRing);
     }
 
-    if (canRing && movement.current.enter) {
+    if (!movement.current.enter) {
+      enterHandledRef.current = false;
+    } else if (canRing && !enterHandledRef.current) {
+      enterHandledRef.current = true;
       doorbellSoundRef.current?.play();
       onDoorbellRing?.();
       playDoorbellSequence();

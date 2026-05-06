@@ -1,7 +1,7 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useStore } from "@/state/useStore";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const OPEN_SPEED = 4;
 const FULL_OPEN_ANGLE = -Math.PI / 2;
@@ -14,7 +14,7 @@ export function useOpenInteriorDoors() {
   const markInteriorDoorOpened = useStore((s) => s.markInteriorDoorOpened);
   const soundRef = useRef<THREE.Audio | null>(null);
 
-  if (!soundRef.current) {
+  useEffect(() => {
     const listener = new THREE.AudioListener();
     camera.add(listener);
 
@@ -25,7 +25,12 @@ export function useOpenInteriorDoors() {
     });
 
     soundRef.current = sound;
-  }
+
+    return () => {
+      camera.remove(listener);
+      soundRef.current = null;
+    };
+  }, [camera]);
 
   useFrame((_, delta) => {
     if (!doorName) return;
